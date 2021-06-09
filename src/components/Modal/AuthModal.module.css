@@ -1,0 +1,17 @@
+.content{
+    text-align: center;
+}
+.action{
+   
+}
+
+.action button {
+    text-decoration: none;
+    border: 1px solid grey;
+    padding: 7px;
+    background-color:white;
+}
+.action button:hover{
+    background-color: darkgrey;
+    color: white;
+}
