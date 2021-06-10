@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import {useSelector, useDispatch} from 'react-redux';
 
 function App() {
+
   const isLoggedIn = useSelector(state => state.isLoggedIn);
 
   return (

@@ -19,8 +19,7 @@ export const UserAuthSend = async(params,isLogin) => {
                 'Content-Type':'application/json'
             }
         });
-        const data = await response.json();
-        
+        const data = await response.json(); 
         if(data.error){
             throw new Error(data.error.message);
         }

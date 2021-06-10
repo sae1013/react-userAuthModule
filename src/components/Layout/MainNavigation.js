@@ -10,7 +10,6 @@ const MainNavigation = () => {
 
   const logoutHandler = () => {
     dispatch({type:'LOGOUT'});
-    localStorage.removeItem('loginToken');
     history.replace('/');
   }
   

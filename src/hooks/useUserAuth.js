@@ -40,9 +40,7 @@ export const useUserAuth = (reqFunction,startWithPending,isLogin) => {
 
         try{
             const data = await reqFunction(reqParams,isLogin);
-            dispatch({type:'SUCCESS',payload:data});
-            reduxDispatch({type:'LOGIN',payload:data.idToken});
-            // localStorage.setItem('loginToken',data.idToken); redux/store로 이동
+            reduxDispatch({type:'LOGIN',payload:{idToken:data.idToken , expiresIn:data.expiresIn , dispatch:reduxDispatch} });
             history.replace('/');
 
         }catch(err){
