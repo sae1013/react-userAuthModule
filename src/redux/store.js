@@ -1,17 +1,20 @@
 import {createStore} from 'redux';
-
+import {useEffect} from 'react';
+const initialToken = localStorage.getItem('loginToken');
+const initialisLoggedIn = !!initialToken;
 const initialState = {
-    idToken:null,
-    isLoggedIn :false
+    idToken : initialToken,
+    isLoggedIn : initialisLoggedIn
 }
-
 const loginReducer = (state = initialState,action) => {
     if(action.type ==='LOGIN'){
+        localStorage.setItem('loginToken',action.payload);
         return {
             idToken:action.payload,
-            isLoggedin: true           
+            isLoggedIn: true           
         }
     }   
+
     if(action.type === 'LOGOUT') {
         return {
             idToken:null,

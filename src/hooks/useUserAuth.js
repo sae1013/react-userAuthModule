@@ -42,8 +42,9 @@ export const useUserAuth = (reqFunction,startWithPending,isLogin) => {
             const data = await reqFunction(reqParams,isLogin);
             dispatch({type:'SUCCESS',payload:data});
             reduxDispatch({type:'LOGIN',payload:data.idToken});
+            // localStorage.setItem('loginToken',data.idToken); redux/store로 이동
             history.replace('/');
-            
+
         }catch(err){
             dispatch({type:'ERROR',payload:err.message});
         }

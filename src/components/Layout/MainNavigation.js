@@ -1,19 +1,19 @@
 import { Link,useHistory,Redirect } from 'react-router-dom';
-
 import classes from './MainNavigation.module.css';
 import {useDispatch,useSelector} from 'react-redux';
 
 const MainNavigation = () => {
   const isLoggedIn = useSelector(state => state.isLoggedIn);
+
   const dispatch = useDispatch();
   const history = useHistory();
 
   const logoutHandler = () => {
     dispatch({type:'LOGOUT'});
+    localStorage.removeItem('loginToken');
     history.replace('/');
-    
-
   }
+  
   return (
     <header className={classes.header}>
       <Link to='/'>
